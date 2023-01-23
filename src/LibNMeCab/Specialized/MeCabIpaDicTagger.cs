@@ -1,4 +1,9 @@
-﻿namespace NMeCab.Specialized
+﻿using System;
+using System.IO.MemoryMappedFiles;
+using NMeCab.Core;
+
+
+namespace NMeCab.Specialized
 {
     /// <summary>
     /// IPA形式の辞書を使用する場合の形態素解析処理の起点を表します。

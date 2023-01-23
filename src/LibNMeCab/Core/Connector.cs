@@ -18,7 +18,7 @@ namespace NMeCab.Core
 
         private const string MatrixFile = "matrix.bin";
 
-        private readonly MemoryMappedFileLoader mmfLoader = new MemoryMappedFileLoader();
+        private readonly IFileLoader mmfLoader = IFileLoader.NewFileLoader;
         private unsafe short* matrix;
 
         public ushort LSize { get; private set; }

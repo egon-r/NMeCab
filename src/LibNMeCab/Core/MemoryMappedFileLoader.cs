@@ -6,7 +6,7 @@ using System.IO.MemoryMappedFiles;
 
 namespace NMeCab.Core
 {
-    public class MemoryMappedFileLoader : IDisposable
+    public class MemoryMappedFileLoader : IFileLoader
     {
         private bool invoked = false;
         private bool disposed = false;
@@ -14,12 +14,18 @@ namespace NMeCab.Core
         private MemoryMappedFile mmf = null;
         private MemoryMappedViewAccessor mmva = null;
 
-        public long FileSize
+        public override long FileSize
         {
             get { return this.fileStream?.Length ?? 0L; }
         }
 
-        public unsafe byte* Invoke(string file)
+        public override BinaryReader CreateBinaryReader(string path)
+        {
+            var stream = new FileStream(path, FileMode.Open, FileAccess.Read, FileShare.Read);
+            return new BinaryReader(stream);
+        }
+
+        public override unsafe byte* Invoke(string file)
         {
             if (this.invoked) throw new InvalidOperationException();
 
@@ -42,7 +48,7 @@ namespace NMeCab.Core
             return ptr;
         }
 
-        public void Dispose()
+        public override void Dispose()
         {
             this.Dispose(true);
             GC.SuppressFinalize(this);

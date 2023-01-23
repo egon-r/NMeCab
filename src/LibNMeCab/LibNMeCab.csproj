@@ -11,7 +11,7 @@
     <RepositoryUrl>https://github.com/komutan/NMeCab</RepositoryUrl>
     <PackageLicenseExpression>GPL-2.0-or-later OR LGPL-2.1-or-later</PackageLicenseExpression>
     <PackageTags>morphological-analysis, part-of-speech-tagger, japanese-nlp, mecab</PackageTags>
-    <PackageIcon>NMeCab-icon-512.png</PackageIcon>
+    <PackageIcon>..\..\icon\NMeCab-icon-256.png</PackageIcon>
     <PackageProjectUrl>https://github.com/komutan/NMeCab</PackageProjectUrl>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
   </PropertyGroup>
@@ -29,14 +29,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="..\..\icon\NMeCab-icon-512.png">
-      <Pack>True</Pack>
-      <PackagePath></PackagePath>
-    </None>
-  </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Include="CenterCLR.RelaxVersioner" Version="1.0.10">
+    <PackageReference Include="RelaxVersioner" Version="2.14.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>

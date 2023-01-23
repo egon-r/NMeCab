@@ -33,9 +33,7 @@ namespace NMeCab.Core
         public void Open(string dicDir)
         {
             string fileName = Path.Combine(dicDir, CharPropertyFile);
-
-            using (var stream = new FileStream(fileName, FileMode.Open, FileAccess.Read, FileShare.Read))
-            using (var reader = new BinaryReader(stream))
+            using (var reader = IFileLoader.NewFileLoader.CreateBinaryReader(fileName))
             {
                 this.Open(reader, fileName);
             }

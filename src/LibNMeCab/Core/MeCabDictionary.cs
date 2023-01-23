@@ -19,7 +19,7 @@ namespace NMeCab.Core
         private const uint DictionaryMagicID = 0xEF718F77u;
         private const uint DicVersion = 102u;
 
-        private readonly MemoryMappedFileLoader mmfLoader = new MemoryMappedFileLoader();
+        private readonly IFileLoader mmfLoader = IFileLoader.NewFileLoader;
         private unsafe Token* tokens;
         private unsafe byte* features;
 
