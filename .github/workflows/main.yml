@@ -19,6 +19,6 @@ jobs:
           nuget restore LibNMeCab.csproj
           dotnet build --configuration Release
           dotnet nuget add source --username egon-r --password ${{ secrets.GITHUB_TOKEN }} --store-password-in-clear-text --name github "https://nuget.pkg.github.com/egon-r/index.json"
-          nuget pack -Properties Configuration=Release -Version 0.0.0
+          nuget pack -Properties Configuration=Release -Version 0.10.3
           ls .
           dotnet nuget push LibNMeCab.0.10.3.nupkg --source "github"
