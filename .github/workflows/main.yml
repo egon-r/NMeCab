@@ -1,5 +1,9 @@
 name: GitHub Packages
 on: [push]
+
+permissions:
+  packages: write
+
 jobs:
   Build-And-Deploy:
     runs-on: ubuntu-latest
